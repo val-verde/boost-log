@@ -311,7 +311,7 @@ if (WIN32 OR CYGWIN)
         NOMINMAX
         SECURITY_WIN32
     )
-    list(APPEND boost_log_private_libs
+    list(APPEND boost_log_public_libs
         ws2_32
         mswsock
         advapi32
