@@ -320,7 +320,11 @@ endif()
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     list(APPEND boost_log_common_private_defines _XOPEN_SOURCE=600)
-    list(APPEND boost_log_private_libs rt)
+    find_library(RT_LIB rt)
+
+    if (RT_LIB)
+        list(APPEND boost_log_private_libs ${RT_LIB})
+    endif ()
 endif()
 
 if (CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
